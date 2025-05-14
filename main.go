@@ -10,7 +10,7 @@ func main() {
 	//lib.handleServer("wnSol.json")
 
 	// infile prefix here is ./wrangle/cleaned/
-	dict := lib.LoadJSONDict("../llmgen/gd.json","data/llmgen/") 
+	dict := lib.LoadJSONDict("wrangle/llmgen/gd.json","data/llmgen/") 
 	//dict := lib.LoadLLMDict()
 	//dict := lib.LoadWNDict()
 

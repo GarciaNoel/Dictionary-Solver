@@ -88,7 +88,7 @@ func (d *Dictionary) PrintSize() {
 
 // Loads Data from File(s) into memory
 func (d *Dictionary) loadData(fn string) {
-	bytes, err := os.ReadFile("wrangle/cleaned/" + fn) // just pass the file name
+	bytes, err := os.ReadFile(fn) // just pass the file name
 	if err != nil {
 		fmt.Print(err)
 	}

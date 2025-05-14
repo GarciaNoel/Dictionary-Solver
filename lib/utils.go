@@ -26,7 +26,7 @@ func LoadDict() dictInterface {
 	dict.setFolder("data/old/")
 
 	for ch := 'A'; ch <= 'Z'; ch++ {
-		dict.loadData(string(ch) + ".json")
+		dict.loadData("wrangle/cleaned/" + string(ch) + ".json")
 	}
 
 	dict.PrintSize()
@@ -49,7 +49,7 @@ func LoadLLMDict() dictInterface {
 
 	dict.setFolder("data/llmgen/")
 
-	dict.loadData("../llmgen/gd.json")
+	dict.loadData("wrangle/llmgen/gd.json")
 	
 	dict.PrintSize()
 
