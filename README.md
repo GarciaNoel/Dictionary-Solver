@@ -5,7 +5,7 @@ Minimum Directed Feedback Vertex Set Approximation Algorithm AKA Dictionary Prob
 ## BUILD INSTRUCTIONS (Linux)
 ```bash
 sudo apt install golang-go
-go build main.go utils.go graph.go dict.go
+go build main.go
 # python script coming soon.
 # (python main file build script)
 # edit main.go to script golang
