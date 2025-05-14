@@ -11,6 +11,7 @@ import (
 	"os"
 	"strings"
 	"time"
+	"path/filepath"
 
 	"github.com/gorilla/mux"
 )
@@ -103,8 +104,31 @@ func LoadWNDict() dictInterface {
 	return dict
 }
 
+func folderExists(path string) bool {
+	fileInfo, err := os.Stat(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return false
+		}
+		return false
+	}
+	return fileInfo.IsDir()
+}
+
 func write(li []string, fn string) {
 	json, err := json.MarshalIndent(li, "", " ")
+	
+	dir := filepath.Dir(fn)
+
+	if (!folderExists(dir)){
+		err := os.MkdirAll(dir, 0755)
+		if err != nil {
+			fmt.Println("Error creating directory:", err)
+			return
+		}	
+	}
+	
+
 	if err != nil {
 		fmt.Printf("Error: %s", err.Error())
 	} else {
