@@ -1,1 +1,5 @@
 data/wn/trees/*
+data/wn/*
+data/old/*
+data/sol/*
+data/llmgen/*
