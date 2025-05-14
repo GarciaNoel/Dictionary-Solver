@@ -1,8 +1,5 @@
-module noeldev.site/dictionary
+module github.com/garcianoel/dictionary-solver
 
-go 1.19
+go 1.22.2
 
-require (
-	github.com/gorilla/mux v1.8.0 // indirect
-	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e // indirect
-)
+require github.com/gorilla/mux v1.8.1 // indirect

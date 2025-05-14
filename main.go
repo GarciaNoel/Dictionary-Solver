@@ -1,33 +1,40 @@
 package main
 
+import (
+	"github.com/garcianoel/dictionary-solver/lib"
+)
+
+
 func main() {
 
-	//handleServer("wnSol.json")
+	//lib.handleServer("wnSol.json")
 
-	dict := LoadLLMDict()
-	//dict := LoadWNDict()
+	// infile prefix here is ./wrangle/cleaned/
+	dict := lib.LoadJSONDict("../llmgen/gd.json","data/llmgen/") 
+	//dict := lib.LoadLLMDict()
+	//dict := lib.LoadWNDict()
 
-	Solve(dict)
+	lib.Solve(dict)
 
-	//reconstructWord(dict, "happy", "delNodes.json")
+	//lib.reconstructWord(dict, "happy", "delNodes.json")
 
-	//exportSol(dict, "delNodes.json", "oldSol.json")
+	//lib.exportSol(dict, "delNodes.json", "oldSol.json")
 
-	//simulatedAnnealing(dict, "delNodes.json")
+	//lib.simulatedAnnealing(dict, "delNodes.json")
 
-	//cullSolution(dict, "delNodes.json")
+	//lib.cullSolution(dict, "delNodes.json")
 
-	graphVerify(dict, "delNodes.json")
+	lib.GraphVerify(dict, "delNodes.json")
 
-	//alternateVerify(dict, "delNodes.json")
+	//lib.alternateVerify(dict, "delNodes.json")
 
 	//dictVerify(dict, "cullNodes.json")
 
 	//exportTrees(dict, "delNodes.json")
 
-	//exportNames(dict)
+	//lib.exportNames(dict)
 
-	//exportJson(dict)
+	//lib.exportJson(dict)
 
-	//exportCSV(dict, "delNodes.json")
+	//lib.exportCSV(dict, "delNodes.json")
 }

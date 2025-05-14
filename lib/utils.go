@@ -1,4 +1,4 @@
-package main
+package lib
 
 import (
 	"bufio"
@@ -49,6 +49,28 @@ func LoadLLMDict() dictInterface {
 	dict.setFolder("data/llmgen/")
 
 	dict.loadData("../llmgen/gd.json")
+	
+	dict.PrintSize()
+
+	t := time.Now()
+	elapsed := t.Sub(start)
+	fmt.Println("\ntime elapsed : ", elapsed)
+
+	fmt.Println()
+
+	return dict
+}
+
+func LoadJSONDict(infile string, outfol string) dictInterface {
+	start := time.Now()
+
+	fmt.Println("loading dictionary...")
+
+	dict := &Dictionary{definitions: make(map[string]*Definition)}
+
+	dict.setFolder(outfol)
+
+	dict.loadData(infile)
 	
 	dict.PrintSize()
 
@@ -231,7 +253,7 @@ func simulatedAnnealing(dict dictInterface, fn string) {
 	fmt.Println("\ntime elapsed : ", elapsed)
 }
 
-func graphVerify(dict dictInterface, fn string) {
+func GraphVerify(dict dictInterface, fn string) {
 	folder := dict.getFolder()
 
 	delNodes := getNodes(folder + fn)
@@ -264,7 +286,7 @@ func alternateVerify(dict dictInterface, fn string) {
 
 	start := time.Now()
 
-	tGraph.firstPop()
+	tGraph.popAlgo()
 
 	for _, k := range delNodes {
 		delList := tGraph.DeleteVertex(k)

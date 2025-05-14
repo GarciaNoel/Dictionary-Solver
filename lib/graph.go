@@ -1,4 +1,4 @@
-package main
+package lib
 
 import (
 	"container/heap"
@@ -252,7 +252,7 @@ func (g *Graph) Size() int {
 func (g *Graph) FVS() []string {
 	fmt.Println("searching for FVS...")
 
-	g.firstPop()
+	g.popAlgo()
 
 	var delNodes []string
 
@@ -277,7 +277,7 @@ func (g *Graph) top() []string {
 	return freeWords
 }
 
-// only used for first pop
+// only used for first pop O(N)
 func (g *Graph) pop() (int, []*Vertex) {
 	pops := 0
 	var delList []*Vertex
@@ -296,6 +296,7 @@ func (g *Graph) pop() (int, []*Vertex) {
 	return pops, delList
 }
 
+// function is O(E) to deleted vertices from last pass
 func (g *Graph) popList(outLi []*Vertex) (int, []*Vertex) {
 	pops := 0
 	var delList []*Vertex
@@ -315,7 +316,7 @@ func (g *Graph) popList(outLi []*Vertex) (int, []*Vertex) {
 	return pops, delList
 }
 
-func (g *Graph) firstPop() {
+func (g *Graph) popAlgo() {
 	pops, delList := g.pop()
 
 	for pops != 0 {
