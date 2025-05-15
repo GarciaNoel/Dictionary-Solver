@@ -1,16 +1,28 @@
 package main
 
 import (
+	"flag"
 	"github.com/garcianoel/dictionary-solver/lib"
 )
+
+var (
+    infile    string
+    outfol    string
+)
+
+func init() {
+    flag.StringVar(&infile, "jsonpath", "wrangle/llmgen/gd.json", "path to json dictionary")
+    flag.StringVar(&outfol, "folderpath", "data/llmgen/", "path to directory for data outuput")
+}
 
 
 func main() {
 
+	flag.Parse()
+
 	//lib.handleServer("wnSol.json")
 
-	// infile prefix here is ./wrangle/cleaned/
-	dict := lib.LoadJSONDict("wrangle/llmgen/gd.json","data/llmgen/") 
+	dict := lib.LoadJSONDict(infile, outfol) 
 	//dict := lib.LoadLLMDict()
 	//dict := lib.LoadWNDict()
 
