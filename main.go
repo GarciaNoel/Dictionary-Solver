@@ -5,6 +5,8 @@ import (
 	"github.com/garcianoel/dictionary-solver/lib"
 )
 
+// "github.com/garcianoel/dictionary-solver/net"
+
 var (
     infile    string
     outfol    string
@@ -20,7 +22,7 @@ func main() {
 
 	flag.Parse()
 
-	//lib.handleServer("wnSol.json")
+	//net.HandleServer("wnSol.json")
 
 	dict := lib.LoadJSONDict(infile, outfol) 
 	//dict := lib.LoadLLMDict()
